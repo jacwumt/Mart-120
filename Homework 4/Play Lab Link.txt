@@ -1,0 +1,11 @@
+https://studio.code.org/projects/playlab/HDj9EQ3r4DlfZcS1LQ7MmVFJI2LRy-jRC0fOD0gGs9E/edit
+
+controls up down arrows control the witch to move up and down.
+Right arrow the witch shoots a fireball
+the game ends as a loss if the cat gets to the witch
+i wanted to make it so the fireballs would cause the cat to disapear enabling me to put a score associated with that
+I could not find a way for the projectiles to interact with the actors, only if the actors touch each other
+The game is therefore not complete but i think it should fulfill criteria (at best)
+good luck
+sometimes the cat randomly moves directly at the player at first usually resulting in a collision and loss.
+sorry about that.
