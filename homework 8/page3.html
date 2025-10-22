@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script>
+        function validateForm() {
+            let valid = true;
+
+            // Name
+            const name = document.getElementById("name");
+            if (name.value.trim() === "") {
+                name.style.backgroundColor = "red";
+                name.focus();
+                document.getElementById("nameMsg").innerHTML = "* Required";
+                valid = false;
+            } else {
+                name.style.backgroundColor = "white";
+                document.getElementById("nameMsg").innerHTML = "";
+            }
+
+            // Email
+            const email = document.getElementById("email");
+            if (email.value.trim() === "") {
+                email.style.backgroundColor = "red";
+                if (valid) email.focus();
+                document.getElementById("emailMsg").innerHTML = "* Required";
+                valid = false;
+            } else {
+                email.style.backgroundColor = "white";
+                document.getElementById("emailMsg").innerHTML = "";
+            }
+
+            // Terms
+            const terms = document.getElementById("terms");
+            if (!terms.checked) {
+                document.getElementById("termsMsg").innerHTML = "* You must agree";
+                valid = false;
+            } else {
+                document.getElementById("termsMsg").innerHTML = "";
+            }
+
+            return valid;
+        }
+    </script>
+</head>
+
+<body style="background-color: beige;">
+    <div style="margin: 30px;">
+        <h1>Contact Us</h1>
+
+        <form onsubmit="return validateForm();">
+            <p>Name: <input type="text" id="name"> <span id="nameMsg"></span></p>
+            <p>Email: <input type="email" id="email"> <span id="emailMsg"></span></p>
+            <p><input type="checkbox" id="terms"> I agree to the terms <span id="termsMsg"></span></p>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+ <p>
+  <a href="page1.html" id="home">Home</a> |
+  <a href="page2.html">Short Story</a> |
+  <a href="page3.html">Contact Us</a> |
+  <a href="page4.html">Math Game</a>
+</p>
+
+    </div>
+</body>
+</html>

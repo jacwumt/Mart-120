@@ -1,0 +1,19 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+    color: darkgrey;
+    text-align: center;
+}
+
+.content {
+    font-size: 18px;
+    margin: 20px;
+    color: #333;
+}
+
+#home, #contact {
+    font-size: 21px;
+    color: lightslategrey;
+}

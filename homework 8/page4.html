@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Game</title>
+    <link rel="stylesheet" type="text/css" href="css/mainstyle.css">
+
+    <style>
+        /* embedded styles */
+        body {
+            background-color: beige;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #question {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #result {
+            font-size: 20px;
+            color: darkgreen;
+        }
+
+        #summary {
+            font-size: 22px;
+            color: darkslateblue;
+            margin-top: 20px;
+        }
+
+        input[type="number"] {
+            width: 80px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 10px;
+            font-size: 16px;
+            padding: 8px 12px;
+        }
+    </style>
+
+    <script>
+        let correct = 0;
+        let incorrect = 0;
+        let totalQuestions = 10;
+        let currentQuestion = 0;
+        let num1, num2, answer;
+
+        function newQuestion() {
+            if (currentQuestion >= totalQuestions) {
+                showSummary();
+                return;
+            }
+
+            num1 = Math.floor(Math.random() * 10) + 1;
+            num2 = Math.floor(Math.random() * 10) + 1;
+            answer = num1 + num2;
+            document.getElementById("question").innerHTML = 
+                "Question " + (currentQuestion + 1) + ": " + num1 + " + " + num2 + " = ?";
+            document.getElementById("answer").value = "";
+            document.getElementById("result").innerHTML = "";
+            document.getElementById("answer").focus();
+        }
+
+        function checkAnswer() {
+            const userAnswer = parseInt(document.getElementById("answer").value);
+            if (isNaN(userAnswer)) {
+                document.getElementById("result").innerHTML = "Please enter a number!";
+                return;
+            }
+
+            if (userAnswer === answer) {
+                correct++;
+                document.getElementById("result").innerHTML = "✅ Correct!";
+            } else {
+                incorrect++;
+                document.getElementById("result").innerHTML = "❌ Wrong! The answer was " + answer;
+            }
+
+            currentQuestion++;
+            setTimeout(newQuestion, 1000);
+        }
+
+        function showSummary() {
+            let percent = Math.round((correct / totalQuestions) * 100);
+            document.getElementById("game").style.display = "none";
+            document.getElementById("summary").innerHTML =
+                `Game Over!<br>Correct: ${correct}<br>Incorrect: ${incorrect}<br>Score: ${percent}%`;
+        }
+
+        window.onload = newQuestion;
+    </script>
+</head>
+
+<body>
+    <h1 class="title">Simple Math Game</h1>
+    <div id="game">
+        <p id="question"></p>
+        <input type="number" id="answer" placeholder="Enter answer">
+        <button onclick="checkAnswer()">Submit</button>
+        <p id="result"></p>
+    </div>
+    <p id="summary"></p>
+
+    <p>
+  <a href="page1.html" id="home">Home</a> |
+  <a href="page2.html">Short Story</a> |
+  <a href="page3.html">Contact Us</a> |
+  <a href="page4.html">Math Game</a>
+</p>
+
+</body>
+</html>
